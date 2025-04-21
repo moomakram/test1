@@ -246,37 +246,37 @@ export const PeopleData = [
   {
     id: 5,
     name: "Robert De Niro",
-    photo: require("../img1/cT8htcckIuyI1Lqwt1CvD02ynTh.webp"),
+    photo: require("../img1/images.jpg"),
   },
   {
     id: 6,
     name: "Mike Johnson",
-    photo: require("../img1/wIM7nm64sjb1vF702W7LhNh6Otd.jpg"),
+    photo: require("../img1/licensed-image (1).jpg"),
   },
   {
     id: 7,
     name: "Toshihito Kokubo",
-    photo: require("../img1/v0r0sHMvdXdw0Srz0zL4lvkcc3P.webp"),
+    photo: require("../img1/images.webp"),
   },
   {
     id: 8,
     name: "Tom Hanks",
-    photo: require("../img1/eKF1sGJRrZJbfBG1KirPt1cfNd3.webp"),
+    photo: require("../img1/gettyimages-1257937597.jpg"),
   },
   {
     id: 9,
     name: "TTaika Waititi",
-    photo: require("../img1/aH6MgwFhomAPNBRPyO2fhpU5kbk.webp"),
+    photo: require("../img1/512px-Taika_Waititi_photo_by_pouria_afkhami.webp"),
   },
   {
     id: 10,
     name: "Ben Affleck",
-    photo: require("../img1/aTcqu8cI4wMohU17xTdqmXKTGrw.webp"),
+    photo: require("../img1/licensed-image.jpg"),
   },
   {
     id: 11,
     name: "Bong Joon Ho",
-    photo: require("../img1/tKLJBqbdH6HFj2QxLA5o8Zk7IVs.webp"),
+    photo: require("../img1/Bong_Joon-ho_2017.jpg"),
   },
   {
     id: 12,

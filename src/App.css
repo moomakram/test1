@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+/* ✅ تحسين عرض الكروت */
+.movie-card {
+  max-width: 220px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  margin: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.movie-card:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ✅ ترتيب الكروت */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* يعرض 6 كروت في كل صف */
+  grid-gap: 15px;
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* الكرت الأول سيأخذ كامل العرض في الصف الأول */
+.movie-grid .movie-card:nth-child(1) {
+  grid-column: span 6; /* الكرت الأول يأخذ كامل عرض الصف */
+}
+
+/* باقي الكروت (من الثاني فما بعد) تأخذ عمود واحد */
+.movie-grid .movie-card:nth-child(n+2) {
+  grid-column: span 1; /* باقي الكروت تأخذ عمود واحد */
+}
+
+/* ✅ تحسين عرض الصور */
+.image-container img {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* ✅ تحسين ظهور الوصف عند Hover */
+.overlay {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  transition: bottom 0.3s ease-in-out;
+}
+
+.image-container:hover .overlay {
+  bottom: 0;
+}
+
+/* ✅ تحسين تأثيرات التحميل */
+.loading {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ✅ الوضع الفاتح والداكن */
+.light-mode { background-color: #ffffff; color: #000000; }
+.dark-mode { background-color: #121212; color: #ffffff; }
+
+/* ✅ زر Light Mode بجانب زر Logout */
+.toggle-theme, .logout-btn {
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1050;
+}
+
+.toggle-theme {
+  background-color: #333;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.toggle-theme:hover { background-color: #555; }
+
+.logout-btn {
+  right: 20px;
+  background-color: red;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logout-btn:hover { background-color: darkred; }
+
+/* ✅ تحسين الهيدر */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #3498db;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+/* ✅ تحسين زر الرجوع للأعلى */
+.scroll-to-top {
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* تأثير الانسياب للبطاقات */
+.card {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* تأثير تكبير العناصر عند المرور بالماوس */
+.tvshow-card-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tvshow-card-container:hover {
+  transform: scale(1.1); /* تكبير العنصر */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* تأثير الظل لإبراز العنصر */
 }

@@ -147,3 +147,12 @@
   transform: scale(1.05); /* تكبير العنصر قليلاً عند التمرير */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* إضافة ظل لتأثير الـ hover */
 }
+@media (max-width: 576px) {
+  .movie-card {
+    max-width: 100%; /* الكرت يبقى بعرض الشاشة تقريبًا */
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr); /* صفين بس على الموبايل بدل 6 */
+  }
+}

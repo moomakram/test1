@@ -22,7 +22,6 @@ const PeopleCard = ({ person }) => {
       />
       <div className="card-body bg-light">
         <h5 className="card-title mb-1">{person.name}</h5>
-        <p className="card-text text-muted">{person.job}</p>
       </div>
     </div>
   );

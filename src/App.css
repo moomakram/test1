@@ -138,24 +138,12 @@
   transform: scale(1.1);
 }
 
-/* تأثير الانسياب للبطاقات */
-.card {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
 
-.card-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* تأثير تكبير العناصر عند المرور بالماوس */
 .tvshow-card-container {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tvshow-card-container:hover {
-  transform: scale(1.1); /* تكبير العنصر */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* تأثير الظل لإبراز العنصر */
+  transform: scale(1.05); /* تكبير العنصر قليلاً عند التمرير */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* إضافة ظل لتأثير الـ hover */
 }

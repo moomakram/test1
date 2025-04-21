@@ -32,7 +32,7 @@ function Header({ setIsLoggedIn }) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-3">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/Home">
                 Home
               </Link>
             </li>

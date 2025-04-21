@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";  // تم حذف useNavigate
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -18,17 +18,14 @@ function App() {
   const location = useLocation();
   const nodeRef = useRef(null);
 
-  // ✅ تخزين حالة الوضع الفاتح أو الداكن في الحالة المحلية 
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkMode") === "true");
 
-  // ✅ تغيير الوضع الفاتح أو الداكن
   useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);  // حفظ الوضع في localStorage
+    localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  // ✅ تفعيل الوضع عند التحميل
   useEffect(() => {
-    const savedMode = localStorage.getItem("darkMode") === "true";  // استعادة الوضع من localStorage
+    const savedMode = localStorage.getItem("darkMode") === "true";
     setDarkMode(savedMode);
   }, []);
 
@@ -65,7 +62,7 @@ function App() {
   return (
     <div className={darkMode ? "bg-dark text-white" : "bg-light text-dark"} style={{ width: "100%" }}>
       {isLoggedIn && <Header setIsLoggedIn={setIsLoggedIn} />}
-      
+
       {isLoggedIn && (
         <Button
           variant="secondary"
@@ -100,10 +97,11 @@ function App() {
           <CSSTransition key={location.pathname} nodeRef={nodeRef} classNames="fade" timeout={500}>
             <div ref={nodeRef} className="container mt-4" style={{ width: "100%" }}>
               <Routes>
+                <Route path="/" element={<Navigate to={isLoggedIn ? "/Home" : "/login"} replace />} />
                 <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
                 {isLoggedIn && (
                   <>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/Home" element={<Home />} />
                     <Route path="/movies" element={<Movies />} />
                     <Route path="/tvshow" element={<Tvshow />} />
                     <Route path="/HBO" element={<HBO />} />

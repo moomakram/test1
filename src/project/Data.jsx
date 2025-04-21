@@ -152,10 +152,10 @@ export const tvShows = [
   },
   {
     id: 8,
-    title: "Daredevil: Born Again 🦸♂️",
+    title: "Daredevil: Born Again 🦸‍♂️",
     image: require("../img1/9lLuhV703HGCbnz6FxnqCwIwzAZ.jpg"),
     rating: 8,
-    description: "Matt Murdock, a blind lawyer with heightened abilities, is fighting for justice through his bustling law firm ⚖️👨⚖️."
+    description: "Matt Murdock, a blind lawyer with heightened abilities, is fighting for justice through his bustling law firm ⚖️👨‍⚖️."
   },
   {
     id: 9,
@@ -169,14 +169,14 @@ export const tvShows = [
     title: "The Residence 🔍",
     image: require("../img1/cJZbg425I9LF3SlJVQDOg4nJEvq.jpg"),
     rating: 7.7,
-    description: "A brilliant, eccentric detective must solve a murder in the White House residence 🕵️♂️🏛️"
+    description: "A brilliant, eccentric detective must solve a murder in the White House residence 🕵️‍♂️🏛️"
   },
   {
     id: 11,
     title: "good american family 🏡",
     image: require("../img1/fzznLJmBzU5tTxFzklepKifE16o.jpg"),
     rating: 7,
-    description: "Based on the adoption of Natalia Grace (Imogen Faith Reid) by Kristine 🏡👩👧"
+    description: "Based on the adoption of Natalia Grace (Imogen Faith Reid) by Kristine 🏡👩‍👧"
   },
   {
     id: 12,

@@ -97,8 +97,8 @@ function App() {
           <CSSTransition key={location.pathname} nodeRef={nodeRef} classNames="fade" timeout={500}>
             <div ref={nodeRef} className="container mt-4" style={{ width: "100%" }}>
               <Routes>
-                <Route path="/" element={<Navigate to={isLoggedIn ? "/Home" : "/login"} replace />} />
                 <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+                <Route path="/" element={<Navigate to="/Home" />} />
                 {isLoggedIn && (
                   <>
                     <Route path="/Home" element={<Home />} />

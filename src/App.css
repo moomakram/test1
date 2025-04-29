@@ -1,18 +1,15 @@
-/* ✅ تحسين عرض الكروت */
+/* تحسين عرض الكروت */
 .movie-card {
   max-width: 220px;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
   margin: 10px;
+  /* التأكد من أن العرض داخل الكرت يتوزع بشكل متساوٍ */
+  display: block;
+  width: 100%;
 }
 
-.movie-card:hover {
-  transform: scale(1.08);
-  filter: brightness(1.1);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* ✅ ترتيب الكروت */
+/* ترتيب الكروت بشكل متساوٍ */
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* يعرض 6 كروت في كل صف */
@@ -20,7 +17,7 @@
   margin-top: 20px;
 }
 
-/* الكرت الأول سيأخذ كامل العرض في الصف الأول */
+/* الكرت الأول يأخذ كامل العرض في الصف الأول */
 .movie-grid .movie-card:nth-child(1) {
   grid-column: span 6; /* الكرت الأول يأخذ كامل عرض الصف */
 }
@@ -30,13 +27,24 @@
   grid-column: span 1; /* باقي الكروت تأخذ عمود واحد */
 }
 
-/* ✅ تحسين عرض الصور */
+/* تحسين التنسيق على الشاشات الصغيرة */
+@media (max-width: 576px) {
+  .movie-card {
+    max-width: 100%; /* الكرت يبقى بعرض الشاشة تقريبًا */
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr); /* صفين فقط على الموبايل بدل 6 */
+  }
+}
+
+/* التأثيرات على الصور */
 .image-container img {
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
-/* ✅ تحسين ظهور الوصف عند Hover */
+/* تحسين ظهور الوصف عند hover */
 .overlay {
   position: absolute;
   bottom: -100%;
@@ -52,7 +60,7 @@
   bottom: 0;
 }
 
-/* ✅ تحسين تأثيرات التحميل */
+/* تحسين تأثيرات التحميل */
 .loading {
   display: flex;
   justify-content: center;
@@ -74,11 +82,11 @@
   100% { transform: rotate(360deg); }
 }
 
-/* ✅ الوضع الفاتح والداكن */
+/* الوضع الفاتح والداكن */
 .light-mode { background-color: #ffffff; color: #000000; }
 .dark-mode { background-color: #121212; color: #ffffff; }
 
-/* ✅ زر Light Mode بجانب زر Logout */
+/* زر Light Mode وزر Logout */
 .toggle-theme, .logout-btn {
   position: fixed;
   top: 100px;
@@ -106,7 +114,7 @@
 
 .logout-btn:hover { background-color: darkred; }
 
-/* ✅ تحسين الهيدر */
+/* تحسين الهيدر */
 .header {
   position: fixed;
   width: 100%;
@@ -117,7 +125,7 @@
   padding: 15px 0;
 }
 
-/* ✅ تحسين زر الرجوع للأعلى */
+/* تحسين زر الرجوع للأعلى */
 .scroll-to-top {
   bottom: 20px;
   right: 20px;
@@ -138,7 +146,7 @@
   transform: scale(1.1);
 }
 
-
+/* تأثير hover على كروت المسلسلات */
 .tvshow-card-container {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -146,13 +154,4 @@
 .tvshow-card-container:hover {
   transform: scale(1.05); /* تكبير العنصر قليلاً عند التمرير */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* إضافة ظل لتأثير الـ hover */
-}
-@media (max-width: 576px) {
-  .movie-card {
-    max-width: 100%; /* الكرت يبقى بعرض الشاشة تقريبًا */
-  }
-
-  .movie-grid {
-    grid-template-columns: repeat(2, 1fr); /* صفين بس على الموبايل بدل 6 */
-  }
 }

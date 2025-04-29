@@ -59,6 +59,14 @@ function App() {
     }, 15);
   };
 
+  // ProtectedRoute component
+  const ProtectedRoute = ({ children }) => {
+    if (!isLoggedIn) {
+      return <Navigate to="/login" replace />;
+    }
+    return children;
+  };
+
   return (
     <div className={darkMode ? "bg-dark text-white" : "bg-light text-dark"} style={{ width: "100%" }}>
       {isLoggedIn && <Header setIsLoggedIn={setIsLoggedIn} />}
@@ -99,17 +107,13 @@ function App() {
               <Routes>
                 <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
                 <Route path="/" element={<Navigate to="/Home" />} />
-                {isLoggedIn && (
-                  <>
-                    <Route path="/Home" element={<Home />} />
-                    <Route path="/movies" element={<Movies />} />
-                    <Route path="/tvshow" element={<Tvshow />} />
-                    <Route path="/HBO" element={<HBO />} />
-                    <Route path="/people" element={<PeoplePage />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/farm" element={<Farm />} />
-                  </>
-                )}
+                <Route path="/Home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+                <Route path="/movies" element={<ProtectedRoute><Movies /></ProtectedRoute>} />
+                <Route path="/tvshow" element={<ProtectedRoute><Tvshow /></ProtectedRoute>} />
+                <Route path="/HBO" element={<ProtectedRoute><HBO /></ProtectedRoute>} />
+                <Route path="/people" element={<ProtectedRoute><PeoplePage /></ProtectedRoute>} />
+                <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+                <Route path="/farm" element={<ProtectedRoute><Farm /></ProtectedRoute>} />
               </Routes>
             </div>
           </CSSTransition>

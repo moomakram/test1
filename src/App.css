@@ -153,6 +153,6 @@
   }
 
   .movie-grid {
-    grid-template-columns: repeat(2, 1fr); /* صفين بس على الموبايل بدل 6 */
+    grid-template-columns: repeat(2, 1fr); /* صفين بس على  بدل 6 */
   }
 }
